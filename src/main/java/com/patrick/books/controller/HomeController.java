@@ -62,7 +62,6 @@ public class HomeController {
 		ObjectMapper objectMapper = new ObjectMapper();
 		OpenLibrary openLibrary = null;
 		//logger.info(bookInfo);
-		
 
 		try {
 			openLibrary = objectMapper.readValue(bookInfo, OpenLibrary.class);
@@ -72,12 +71,17 @@ public class HomeController {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
+		} catch (Exception e){
+			e.printStackTrace();
 		}
-		
-		logger.info(openLibrary.getISBN().getInfo_url());
-		model.addAttribute("info", openLibrary.getISBN());
-	
-		return "bookInfo";
+		try{
+			logger.info(openLibrary.getISBN().getInfo_url());
+			model.addAttribute("info", openLibrary.getISBN());
+			return "bookInfo";
+		}catch(Exception e){
+			model.addAttribute("error", "No Details found please try again");
+			return "error";
+		}
 	}
 
 }

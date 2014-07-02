@@ -13,7 +13,7 @@
 	<form action = "author" name = "bookFinder" method = "post">
 		<fieldset>
 			<label>Find a fucking book by title</label>
-			<input type="text" id="auther" />
+			<input type="text" id="title" />
 			<input type ="hidden" id = "googleBooksData" name ="googleBooksData"/>
 			<button type="submit">Find me some fucking books!</button>
 		</fieldset>

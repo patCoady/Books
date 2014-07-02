@@ -14,22 +14,24 @@
 			<th>Author</th>
 			<th>Title</th>
 			<th>#Pages</th>
-			<th>Subjects</th>
-			<th>Excerpts</th>
-			<th>Ebook</th>
-			<th>Features</th>
+			<th>Publishers</th>
+			<th>Publish Date</th>
 			<th>Picture</th>
 		</tr>
 		<tr>
-			<td>${info.details.title}</td> <!--List-->
+			<td><c:forEach items="${info.details.authors}" var="author">
+					<div>${author.name}</div>
+				</c:forEach></td>
+
 			<td>${info.details.title}</td>
 			<td>${info.details.number_of_pages}</td>
-			<%-- <td>${info.details.info_url}</td> <!--LIST-->
-			<td>${info.details.info_url}</td><!--else where-->
-			<td>${info.details.info_url}</td><!--else where-->
-			<td>${info.details.info_url}</td><!--else where-->
-			<td>${info.details.info_url}</td><!--else where-->
- --%>
+			<td><c:forEach items = "${info.details.publishers}" var ="publisher">
+				<div>${publisher}</div>
+			</c:forEach></td>
+			<td>${info.details.publish_date}</td>
+			<td><img src = "${info.thumbnail_url}"/></td>
+
+
 		</tr>
 
 	</table>
