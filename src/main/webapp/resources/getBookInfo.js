@@ -2,8 +2,9 @@ var bookId;
 
 $.getScript("resources/json.min.js", function(){
 	mycallback = function(data){
-		  //alert(JSON.stringify(data));
-		$("#bookInfo-".concat(bookId)).val(JSON.stringify(data));
+		var dataString = JSON.stringify(data);
+		$("#bookInfo-".concat(bookId)).val(dataString);
+		alert("GOT DATA");
 		
 		};
 $("button").click(function() {

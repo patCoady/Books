@@ -10,23 +10,24 @@ import org.codehaus.jackson.annotate.JsonPropertyOrder;
 
 
 @Generated("org.jsonschema2pojo")
-@JsonPropertyOrder({
-"ISBN:0451526538"
-})
+/*@JsonPropertyOrder({
+"ISBN:"
+})*/
 public class OpenLibrary {
-
-@JsonProperty("ISBN:")
+//
+//@JsonProperty("ISBN:")
 private ISBN iSBN;
 private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-@JsonProperty("ISBN:")
-public ISBN getISBN_0451526538() {
+//@JsonProperty("ISBN:")
+
+public ISBN getISBN() {
 return iSBN;
 }
 
-@JsonProperty("ISBN:")
-public void setISBN_0451526538(ISBN iSBN_0451526538) {
-this.iSBN = iSBN_0451526538;
+//@JsonProperty("ISBN:")
+public void setISBN(ISBN iSBN) {
+this.iSBN = iSBN;
 }
 
 @JsonAnyGetter
@@ -35,7 +36,8 @@ return this.additionalProperties;
 }
 
 @JsonAnySetter
-public void setAdditionalProperty(String name, Object value) {
+public void setAdditionalProperty(String name, ISBN value) {
+this.iSBN = value;
 this.additionalProperties.put(name, value);
 }
 

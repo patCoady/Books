@@ -26,13 +26,12 @@
 				<td>${item.authors}</td> <!--DNW-->
 				<td>${book.volumeInfo.publishedDate}</td>
 				<td>
-					<form name ="bookInfo" action="info" method ="get">
+					<form name ="bookInfo" action="info" method ="post">
 						<!--Get the ISBN numbers for book-->
 						<c:forEach items="${book.volumeInfo.industryIdentifiers}" var = "ISBN">
 							<input id = "${ISBN.type}-${book.id}" type ="hidden" value = "${ISBN.identifier}"/>
 						</c:forEach>
-						
-						<input type ="hidden" id ="bookInfo-${book.id}"/>
+						<input type ="hidden" id ="bookInfo-${book.id}" name ="bookInfo"/>
 						<button type = "submit">View Info</button>
 						<button type ="button" id="getREST-${book.id}">Get Rest stuff</button>
 					</form>
