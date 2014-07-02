@@ -12,15 +12,12 @@
 <body>
 	<h3>Look at all this fucking knowlege</h3>
 	
-     
-        
-        
+         
 	<table class="booksInfo">
 		<tr>
 			<th>Title</th>
 			<th>Author</th>
 			<th>Published Data</th>
-			<th>ISBN</th>
 			<th>View Info</th>
 		</tr>
 		<c:forEach items="${books.items}" var="book">
@@ -29,13 +26,12 @@
 				<td>${item.authors}</td> <!--DNW-->
 				<td>${book.volumeInfo.publishedDate}</td>
 				<td>
-					<c:forEach items="${book.volumeInfo.industryIdentifiers}" var = "ISBN">
-						<div id = "${ISBN.type}-${book.id}">${ISBN.identifier}</div>
-					</c:forEach>
-				</td>
-				<td>
-				<%-- <script type="text/javascript" src="https://openlibrary.org/api/books?bibkeys=ISBN:0451526538&callback=mycallback" id ="bookJSON-${book.id}"></script> --%>
 					<form name ="bookInfo" action="info" method ="get">
+						<!--Get the ISBN numbers for book-->
+						<c:forEach items="${book.volumeInfo.industryIdentifiers}" var = "ISBN">
+							<input id = "${ISBN.type}-${book.id}" type ="hidden" value = "${ISBN.identifier}"/>
+						</c:forEach>
+						
 						<input type ="hidden" id ="bookInfo-${book.id}"/>
 						<button type = "submit">View Info</button>
 						<button type ="button" id="getREST-${book.id}">Get Rest stuff</button>
