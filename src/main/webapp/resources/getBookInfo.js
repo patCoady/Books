@@ -33,6 +33,16 @@ function iDreamReview(iDreamUrl) {
 		}
 	});
 }
+function iDreamFeature(iDreamUrl) {
+	$.ajax({
+		type : "GET",
+		dataType : "charset=utf-8", 
+		url : iDreamUrl,
+		success : function(data) {
+			$("#iDreamFeatureInfo-".concat(bookId)).val(data);
+		}
+	});
+}
 
 $("button").click(function() {
 	    var splitBtnId = this.id.split("-");
@@ -44,8 +54,11 @@ $("button").click(function() {
 	    	var openLibUrl = "https://openlibrary.org/api/books?bibkeys=ISBN:".concat(isbn).concat("&jscmd=details").concat("&callback=mycallback");
 	    	//var bookShareUrl = "https://api.bookshare.org/book/isbn/9780547539638/format/json?api_key=3mkbgpcwnkmu9dk4ssgzzds3";
 	    	var iDreamUrl = "http://idreambooks.com/api/books/reviews.json?q=".concat(isbn).concat("&key=96e642dbfef07c581689d3cc0e61bc712fb9c682");
+	    	var iDreamFeatureUrl ="http://idreambooks.com/api/books/show_features.json?".concat(isbn).concat("&key=96e642dbfef07c581689d3cc0e61bc712fb9c682");
+	    	
 	    	//getBookShare(bookShareUrl);
 	    	iDreamReview(iDreamUrl);
+	    	iDreamFeature(iDreamFeatureUrl);
 	    	$.loadScript(openLibUrl);
 	    	alert("DataLoaded");
 	    	//"https://openlibrary.org/api/books?bibkeys=ISBN:0451526538&callback=mycallback"

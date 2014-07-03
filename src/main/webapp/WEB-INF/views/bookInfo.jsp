@@ -46,5 +46,13 @@
 		<p>In detail this fucker said: ${review.snippet} </p>
 		<p> <a href="${review.review_link }"> Read the whole review here</a></p>
 	</c:forEach>
+	
+	<h4>This book was on your fucking tv</h4>
+	<c:forEach items = "${iDreamFeature.books}" var ="book">
+		<c:forEach items ="${book.shows}" var ="show">
+			<p>${show.showName}</p>
+		</c:forEach>
+	
+	</c:forEach>
 </body>
 </html>

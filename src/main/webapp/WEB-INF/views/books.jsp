@@ -41,6 +41,7 @@
 						</c:forEach>
 						<input type="hidden" id="openLibInfo-${book.id}" name="openLibInfo" />
 						<input type="hidden" id="iDreamInfo-${book.id}" name="iDreamInfo" />
+						<input type="hidden" id="iDreamFeatureInfo-${book.id}" name="iDreamFeatureInfo" />
 						<button type="submit" id = "submit-${book.id}">View Info</button>
 						<button type="button" id="getREST-${book.id}">Get Rest stuff</button>
 					</form>
