@@ -35,5 +35,16 @@
 		</tr>
 
 	</table>
+	<h4>Find out what some smart fuckers thought</h4>
+	<c:forEach items="${iDream.book.critic_reviews}" var ="review">
+		<p>${review.source} gave this fucking book, ${star_rating} stars that a lot(or very few) stars! </p>
+		<p>	In detail this fucker said: ${review.snippet} </p>
+		<p> <a href="${review.review_link }"> Read the whole review here</a></p>
+	</c:forEach>
+	<c:forEach items ="${iDream.book.unrated_critic_reviews}" var="review">
+		<p>${review.source} had some stuff to say about this book </p>
+		<p>In detail this fucker said: ${review.snippet} </p>
+		<p> <a href="${review.review_link }"> Read the whole review here</a></p>
+	</c:forEach>
 </body>
 </html>

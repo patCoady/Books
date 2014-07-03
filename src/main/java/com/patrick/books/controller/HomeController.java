@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.patrick.books.entity.google.BookMetaData;
+import com.patrick.books.entity.idream.review.IDream;
 import com.patrick.books.entity.openlib.OpenLibrary;
 
 
@@ -58,13 +59,15 @@ public class HomeController {
 	}
 	//@RequestParam Map<String,String> allRequestParams
 	@RequestMapping(value = "info", method = RequestMethod.POST)
-	public String do_Info(Model model, @RequestParam("bookInfo") String bookInfo){
+	public String do_Info(Model model, @RequestParam("openLibInfo") String openLibInfo, @RequestParam("iDreamInfo") String iDreamInfo){
 		ObjectMapper objectMapper = new ObjectMapper();
 		OpenLibrary openLibrary = null;
+		IDream iDream = null;
 		//logger.info(bookInfo);
 
 		try {
-			openLibrary = objectMapper.readValue(bookInfo, OpenLibrary.class);
+			openLibrary = objectMapper.readValue(openLibInfo, OpenLibrary.class);
+			iDream = objectMapper.readValue(iDreamInfo, IDream.class);
 		} catch (JsonParseException e) {
 			e.printStackTrace();
 		} catch (JsonMappingException e) {
@@ -75,8 +78,9 @@ public class HomeController {
 			e.printStackTrace();
 		}
 		try{
-			logger.info(openLibrary.getISBN().getInfo_url());
+			//logger.info(openLibrary.getISBN().getInfo_url());
 			model.addAttribute("info", openLibrary.getISBN());
+			model.addAttribute("iDream", iDream);
 			return "bookInfo";
 		}catch(Exception e){
 			model.addAttribute("error", "No Details found please try again");
