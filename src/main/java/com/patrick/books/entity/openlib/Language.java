@@ -2,9 +2,12 @@ package com.patrick.books.entity.openlib;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.annotation.Generated;
+
 import org.codehaus.jackson.annotate.JsonAnyGetter;
 import org.codehaus.jackson.annotate.JsonAnySetter;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.annotate.JsonPropertyOrder;
 
@@ -13,6 +16,7 @@ import org.codehaus.jackson.annotate.JsonPropertyOrder;
 @JsonPropertyOrder({
 "key"
 })
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Language {
 
 @JsonProperty("key")

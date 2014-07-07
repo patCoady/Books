@@ -12,7 +12,7 @@
 <title>Books</title>
 </head>
 <body>
-	<h3>Look at all this fucking knowledge</h3>
+	<h3>Look at all this  knowledge</h3>
 
 
 	<table class="booksInfo">

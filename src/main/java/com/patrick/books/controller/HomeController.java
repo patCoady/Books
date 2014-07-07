@@ -1,10 +1,6 @@
 package com.patrick.books.controller;
 
 import java.io.IOException;
-import java.security.KeyStore.Entry;
-import java.util.Map;
-import java.util.Set;
-
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -67,8 +63,10 @@ public class HomeController {
 			@RequestParam("iDreamInfo") String iDreamInfo,
 			@RequestParam("iDreamFeatureInfo") String iDreamFeaturesInfo) {
 		
-		logger.info(iDreamFeaturesInfo);
+		//logger.info(iDreamFeaturesInfo);
 		ObjectMapper objectMapper = new ObjectMapper();
+		/*objectMapper.setSerializationInclusion(Inclusion.NON_NULL);*/
+		
 		OpenLibrary openLibrary = null;
 		IDream iDream = null;
 		IDreamFeatures iDreamFeatures =null;
@@ -91,10 +89,12 @@ public class HomeController {
 		try {
 			// logger.info(openLibrary.getISBN().getInfo_url());
 			model.addAttribute("info", openLibrary.getISBN());
+			logger.info((openLibrary.getISBN().toString()));
 			model.addAttribute("iDream", iDream);
 			model.addAttribute("iDreamFeature", iDreamFeatures);
 			return "bookInfo";
 		} catch (Exception e) {
+			logger.error(openLibInfo, e);
 			model.addAttribute("error", "No Details found please try again");
 			return "error";
 		}

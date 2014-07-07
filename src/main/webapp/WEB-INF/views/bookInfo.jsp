@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Fucking information</title>
+<title>information</title>
 </head>
 <body>
-	<h3>Educate your ignorant ass</h3>
+	<h3>Educate yourself</h3>
 	<h4>Info</h4>
 	<table>
 		<tr>
@@ -35,19 +35,19 @@
 		</tr>
 
 	</table>
-	<h4>Find out what some smart fuckers thought</h4>
+	<h4>Find out what othersthought</h4>
 	<c:forEach items="${iDream.book.critic_reviews}" var ="review">
-		<p>${review.source} gave this fucking book, ${star_rating} stars that a lot(or very few) stars! </p>
-		<p>	In detail this fucker said: ${review.snippet} </p>
+		<p>${review.source} gave this book, ${star_rating} stars that a lot(or very few) stars! </p>
+		<p>	In detail this guy said: ${review.snippet} </p>
 		<p> <a href="${review.review_link }"> Read the whole review here</a></p>
 	</c:forEach>
 	<c:forEach items ="${iDream.book.unrated_critic_reviews}" var="review">
 		<p>${review.source} had some stuff to say about this book </p>
-		<p>In detail this fucker said: ${review.snippet} </p>
+		<p>In detail this guy said: ${review.snippet} </p>
 		<p> <a href="${review.review_link }"> Read the whole review here</a></p>
 	</c:forEach>
 	
-	<h4>This book was on your fucking tv</h4>
+	<h4>This book was on tv</h4>
 	<c:forEach items = "${iDreamFeature.books}" var ="book">
 		<c:forEach items ="${book.shows}" var ="show">
 			<p>${show.showName}</p>

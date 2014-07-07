@@ -7,15 +7,15 @@
 <script type="text/javascript" src="<c:url value="/resources/getBooks.js" />"></script>
 </head>
 <body>
-	<h1>Fucking Book Finder!</h1>
+	<h1> Book Finder!</h1>
 	<button id ="getGoogleRest">google</button>
 
 	<form action = "author" id ="authorForm" name = "bookFinder" method = "post">
 		<fieldset>
-			<label>Find a fucking book by title</label>
+			<label>Find a book by title</label>
 			<input type="text" id="title" />
 			<input type ="hidden" id = "googleBooksData" name ="googleBooksData"/>
-			<button type="submit">Find me some fucking books!</button>
+			<button type="submit">Find me some books!</button>
 		</fieldset>
 	</form>
 

@@ -7,6 +7,7 @@ import javax.annotation.Generated;
 
 import org.codehaus.jackson.annotate.JsonAnyGetter;
 import org.codehaus.jackson.annotate.JsonAnySetter;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonPropertyOrder;
 
 
@@ -15,6 +16,7 @@ import org.codehaus.jackson.annotate.JsonPropertyOrder;
 @JsonPropertyOrder({
 
 })
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Classifications {
 
 private Map<String, Object> additionalProperties = new HashMap<String, Object>();
